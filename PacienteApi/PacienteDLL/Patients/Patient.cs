@@ -12,7 +12,7 @@ namespace PacienteDLL.Patients
     [JsonObject()]
     [Table("MvtBIBPaciente")]
 
-    internal class Patient
+    public class Patient
     {
         [JsonProperty()]
         [Key]

@@ -3,7 +3,7 @@ using PacienteDLL.Patients;
 
 namespace PacienteDLL.SqlConn
 {
-    internal class SqlServerConn
+    public class SqlServerConn : DbContext
     {
         public DbSet<Patient> Patients { get; set; }
 
@@ -12,12 +12,11 @@ namespace PacienteDLL.SqlConn
         private static string user = "sa";
         private static string password = "sa12345";
 
-        public static string StrCon
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            get
-            {
-                return $"Data Source = {server}; Integrated Security = false; Initial Catalog = {database}; User ID = {user}; Password = {password}";
-            }
+            optionsBuilder.UseSqlServer(
+                $@"Server={server};Database={database};User={user};Pwd={password}");
         }
+
     }
 }

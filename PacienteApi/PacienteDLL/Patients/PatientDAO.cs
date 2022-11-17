@@ -14,12 +14,25 @@ namespace PacienteDLL.Patients
         {
             List<Patient> patients;
 
-            using (var cn = new SqlConnection(SqlServerConn.StrCon))
+            using (var cn = new SqlServerConn())
             {
                 patients = cn.Patients.ToList();
             }
 
             return patients;
+        }
+
+        public void SavePatients(List<Patient> listaPacientes)
+        {
+            using (var cn = new SqlServerConn())
+            {
+
+
+                foreach(Patient patient in listaPacientes)
+                {
+                    cn.Patients.Add(patient);
+                }
+            }
         }
     }
 }
