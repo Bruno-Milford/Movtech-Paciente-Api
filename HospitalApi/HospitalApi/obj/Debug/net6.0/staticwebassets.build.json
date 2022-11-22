@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XUllWtRGeMngKf5BZEHfs7B6CBbDyzDnF53gzhrgKDY=",
+  "Source": "HospitalApi",
+  "BasePath": "_content/HospitalApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
