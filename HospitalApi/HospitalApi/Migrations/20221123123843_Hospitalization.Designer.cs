@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221122130220_InitalMigrations")]
-    partial class InitalMigrations
+    [Migration("20221123123843_Hospitalization")]
+    partial class Hospitalization
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,97 @@ namespace HospitalApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("HospitalApi.Models.Hospitalization", b =>
+                {
+                    b.Property<int>("codInternacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("codInternacao"));
+
+                    b.Property<string>("ClinicaMedica")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MaePaciente")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("Nascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Paciente")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("centroCusto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("cns")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<int>("codPaciente")
+                        .HasColumnType("int");
+
+                    b.Property<string>("crm")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .HasColumnType("nvarchar(6)");
+
+                    b.Property<DateTime>("dataEntradaInternacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("dataSaidaInternacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("diagnostico")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("hipoteseDiagnostica")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("horaEntradaInternacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("horaSaidaInternacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("leito")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("localizacao")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("medico")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("situacao")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("codInternacao");
+
+                    b.ToTable("Hospitalizations");
+                });
 
             modelBuilder.Entity("HospitalApi.Models.Patient", b =>
                 {

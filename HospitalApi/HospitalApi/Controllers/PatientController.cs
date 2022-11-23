@@ -10,9 +10,9 @@ namespace HospitalApi.Controllers
 
     public class PatientController : Controller
     {
-        private readonly PatientsContext _context;
+        private readonly Context _context;
 
-        public PatientController(PatientsContext context)
+        public PatientController(Context context)
         {
             _context = context;
         }
