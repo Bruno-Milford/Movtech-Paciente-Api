@@ -7,7 +7,7 @@ namespace HospitalApi.Models
         [Key]
         public int codInternacao { get; set; }
 
-        public int codPaciente { get; set; }
+        public int codPaciente { get; set; } 
 
         [StringLength(50)]
         public string Paciente { get; set; }
