@@ -48,24 +48,7 @@ namespace HospitalApi.Controllers
 
             if (dbHospitalization == null) return NotFound();
 
-            dbHospitalization.codPaciente = hospitalization.codPaciente;
-            dbHospitalization.Paciente = hospitalization.Paciente;
-            dbHospitalization.Nascimento = hospitalization.Nascimento;
-            dbHospitalization.MaePaciente = hospitalization.MaePaciente;
-            dbHospitalization.dataEntradaInternacao = hospitalization.dataEntradaInternacao;
-            dbHospitalization.horaEntradaInternacao = hospitalization.horaEntradaInternacao;
-            dbHospitalization.dataSaidaInternacao = hospitalization.dataSaidaInternacao;
-            dbHospitalization.horaSaidaInternacao = hospitalization.horaSaidaInternacao;
-            dbHospitalization.cns = hospitalization.cns;
-            dbHospitalization.ClinicaMedica = hospitalization.ClinicaMedica;
-            dbHospitalization.localizacao = hospitalization.localizacao;
-            dbHospitalization.leito = hospitalization.leito;
-            dbHospitalization.centroCusto = hospitalization.centroCusto;
-            dbHospitalization.hipoteseDiagnostica = hospitalization.hipoteseDiagnostica;
-            dbHospitalization.medico = hospitalization.medico;
-            dbHospitalization.crm = hospitalization.crm;
-            dbHospitalization.diagnostico = hospitalization.diagnostico;
-            dbHospitalization.situacao = hospitalization.situacao;
+            _context.Entry(hospitalization).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
 
@@ -79,7 +62,7 @@ namespace HospitalApi.Controllers
 
         [HttpDelete]
         [Route("/hospitalization")]
-        public async Task<ActionResult> DeleteHospitalization(Guid codInternacao)
+        public async Task<ActionResult> DeleteHospitalization(int codInternacao)
         {
             var dbHospitalization = await _context.Hospitalizations.FindAsync(codInternacao);
 

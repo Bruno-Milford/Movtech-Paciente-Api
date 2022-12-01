@@ -50,18 +50,7 @@ namespace HospitalApi.Controllers
 
             await _context.SaveChangesAsync();
 
-            dbMovement.codPacienteMov = movement.codPacienteMov;
-            dbMovement.nomePacienteMov = movement.nomePacienteMov;
-            dbMovement.dataNascimentoMov = movement.dataNascimentoMov;
-            dbMovement.nomeMaePacienteMov = movement.nomeMaePacienteMov;
-            dbMovement.dataMovimentacao = movement.dataMovimentacao;
-            dbMovement.horaMovimentacao = movement.horaMovimentacao;
-            dbMovement.motivo = movement.motivo;
-            dbMovement.localizacao = movement.localizacao;
-            dbMovement.leitoMov = movement.leitoMov;
-            dbMovement.centroCustoMov = movement.centroCustoMov;
-            dbMovement.medicoMov = movement.medicoMov;
-            dbMovement.crmMov = movement.crmMov;
+            _context.Entry(movement).State = EntityState.Modified;
 
             return Ok(new
             {
@@ -73,7 +62,7 @@ namespace HospitalApi.Controllers
 
         [HttpDelete]
         [Route("/movement")]
-        public async Task<ActionResult> DeleteMovement(Guid codMovimentacao)
+        public async Task<ActionResult> DeleteMovement(int codMovimentacao)
         {
             var dbMovement = await _context.Movements.FindAsync(codMovimentacao);
 

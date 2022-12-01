@@ -48,7 +48,7 @@ namespace HospitalApi.Controllers
 
             if (dbCostCenter == null) return NotFound();
 
-            dbCostCenter.nomeCentroCusto = costCenter.nomeCentroCusto;
+            _context.Entry(costCenter).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
 
@@ -62,7 +62,7 @@ namespace HospitalApi.Controllers
 
         [HttpDelete]
         [Route("/costcenter")]
-        public async Task<ActionResult> DeleteCostCenter(Guid codCentroCusto)
+        public async Task<ActionResult> DeleteCostCenter(int codCentroCusto)
         {
             var dbCostCenter = await _context.costCenters.FindAsync(codCentroCusto);
 
