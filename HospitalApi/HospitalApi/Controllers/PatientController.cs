@@ -26,7 +26,7 @@ namespace HospitalApi.Controllers
         }
 
         [HttpGet]
-        [Route("patients/{codPaciente}")]
+        [Route("/patients/{codPaciente}")]
         public async Task<ActionResult> GetPatientById(int codPaciente)
         {
             var dbGetbyId = await _context.Patients.FindAsync(codPaciente);
@@ -53,10 +53,11 @@ namespace HospitalApi.Controllers
         }
 
         [HttpPut]
-        [Route("/patients")]
-        public async Task<ActionResult> UpdatePatient(Patient patient)
+        [Route("/patients/{codPaciente}")]
+        public async Task<IActionResult> UpdatePatient(Patient patient)
         {
             var dbPatient = await _context.Patients.FindAsync(patient.codPaciente);
+
             if (dbPatient == null) return NotFound();
 
             _context.Entry(patient).State = EntityState.Modified;
