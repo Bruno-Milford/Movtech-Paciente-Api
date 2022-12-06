@@ -70,6 +70,8 @@ namespace HospitalApi.Controllers
 
             _context.costCenters.Remove(dbCostCenter);
 
+            await _context.SaveChangesAsync();
+
             return Ok(new
             {
                 success = true,
