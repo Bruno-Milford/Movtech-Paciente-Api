@@ -70,6 +70,8 @@ namespace HospitalApi.Controllers
 
             _context.Hospitalizations.Remove(dbHospitalization);
 
+            await _context.SaveChangesAsync();
+
             return Ok(new
             {
                 success = true,

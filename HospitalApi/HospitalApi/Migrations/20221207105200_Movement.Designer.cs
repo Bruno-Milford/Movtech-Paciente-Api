@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221123143757_Movement")]
+    [Migration("20221207105200_Movement")]
     partial class Movement
     {
         /// <inheritdoc />
@@ -24,6 +24,24 @@ namespace HospitalApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("HospitalApi.Models.CostCenter", b =>
+                {
+                    b.Property<int>("codCentroCusto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("codCentroCusto"));
+
+                    b.Property<string>("nomeCentroCusto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("codCentroCusto");
+
+                    b.ToTable("costCenters");
+                });
 
             modelBuilder.Entity("HospitalApi.Models.Hospitalization", b =>
                 {
@@ -132,6 +150,9 @@ namespace HospitalApi.Migrations
                     b.Property<int>("codPacienteMov")
                         .HasColumnType("int");
 
+                    b.Property<int>("codSequencia")
+                        .HasColumnType("int");
+
                     b.Property<string>("crmMov")
                         .IsRequired()
                         .HasMaxLength(6)
@@ -168,13 +189,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("nomeMaePacienteMov")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("nomePacienteMov")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.HasKey("codMovimentacao");
 

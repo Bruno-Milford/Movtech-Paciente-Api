@@ -18,9 +18,10 @@ namespace HospitalApi.Migrations
                     codMovimentacao = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     codPacienteMov = table.Column<int>(type: "int", nullable: false),
-                    nomePacienteMov = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    codSequencia = table.Column<int>(type: "int", nullable: false),
+                    nomePacienteMov = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
                     dataNascimentoMov = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    nomeMaePacienteMov = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    nomeMaePacienteMov = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
                     dataMovimentacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     horaMovimentacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     motivo = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),

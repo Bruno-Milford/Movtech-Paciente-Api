@@ -147,6 +147,9 @@ namespace HospitalApi.Migrations
                     b.Property<int>("codPacienteMov")
                         .HasColumnType("int");
 
+                    b.Property<int>("codSequencia")
+                        .HasColumnType("int");
+
                     b.Property<string>("crmMov")
                         .IsRequired()
                         .HasMaxLength(6)
@@ -183,13 +186,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("nomeMaePacienteMov")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("nomePacienteMov")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.HasKey("codMovimentacao");
 

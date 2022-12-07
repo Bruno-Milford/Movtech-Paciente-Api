@@ -68,9 +68,9 @@ namespace HospitalApi.Controllers
 
             if (dbMovement == null) return NotFound();
 
-            await _context.SaveChangesAsync();
-
             _context.Movements.Remove(dbMovement);
+
+            await _context.SaveChangesAsync();
 
             return Ok(new
             {
