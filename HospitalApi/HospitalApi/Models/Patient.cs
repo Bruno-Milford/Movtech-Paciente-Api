@@ -7,7 +7,7 @@ namespace HospitalApi.Models
         [Key]
         public int codPaciente { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string nomePaciente { get; set; }
 
         [StringLength(2)]
@@ -15,19 +15,19 @@ namespace HospitalApi.Models
 
         public DateTime dataNascimento { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string nomeMaePaciente { get; set; }
 
-        [StringLength(11)]
+        [StringLength(14)]
         public string cpfPaciente { get; set; }
 
-        [StringLength(9)]
+        [StringLength(11)]
         public string rgPaciente { get; set; }
 
-        [StringLength(15)]
+        [StringLength(70)]
         public string cns { get; set; }
 
-        [StringLength(15)]
+        [StringLength(14)]
         public string corPaciente { get; set; }
 
         [StringLength(30)]
@@ -36,10 +36,10 @@ namespace HospitalApi.Models
         [StringLength(30)]
         public string naturalidade { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string grauInstrucaoPaciente { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string profissaoPaciente { get; set; }
 
         [StringLength(30)]
@@ -48,10 +48,10 @@ namespace HospitalApi.Models
         [StringLength(10)]
         public string cep { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string endereco { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string bairro { get; set; }
 
         [StringLength(30)]
@@ -60,16 +60,16 @@ namespace HospitalApi.Models
         [StringLength(2)]
         public string uf { get; set; }
 
-        [StringLength(10)]
+        [StringLength(13)]
         public string telefone { get; set; }
 
-        [StringLength(11)]
+        [StringLength(14)]
         public string celular { get; set; }
 
         [StringLength(30)]
         public string contato { get; set; }
 
-        [StringLength(10)]
+        [StringLength(13)]
         public string telefoneContato { get; set; }
 
         [StringLength(50)]

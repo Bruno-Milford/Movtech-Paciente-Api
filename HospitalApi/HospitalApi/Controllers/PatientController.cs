@@ -56,9 +56,9 @@ namespace HospitalApi.Controllers
         [Route("/patients/{codPaciente}")]
         public async Task<IActionResult> UpdatePatient(Patient patient)
         {
-            var dbPatient = await _context.Patients.FindAsync(patient.codPaciente);
+            //var dbPatient = await _context.Patients.FindAsync(patient.codPaciente);
 
-            if (dbPatient == null) return NotFound();
+            //if (dbPatient == null) return NotFound();
 
             _context.Entry(patient).State = EntityState.Modified;
 
