@@ -24,6 +24,17 @@ namespace HospitalApi.Controllers
             return Ok(await _context.Hospitalizations.ToListAsync());
         }
 
+        [HttpGet]
+        [Route("/hospitalization/{codInternacao}")]
+        public async Task<ActionResult> GetHospitalizationById(int codInternacao)
+        {
+            var dbGetById = await _context.Hospitalizations.FindAsync(codInternacao);
+
+            if (dbGetById == null) return NotFound();
+
+            return Ok(dbGetById);
+        }
+
         [HttpPost]
         [Route("/hospitalization")]
         public async Task<ActionResult> CreateHospitalization(Hospitalization hospitalization)
@@ -41,13 +52,9 @@ namespace HospitalApi.Controllers
         }
 
         [HttpPut]
-        [Route("/hospitalization")]
+        [Route("/hospitalization/{codInternacao}")]
         public async Task<ActionResult> UpdateHospitalization(Hospitalization hospitalization)
         {
-            var dbHospitalization = await _context.Hospitalizations.FindAsync(hospitalization.codInternacao);
-
-            if (dbHospitalization == null) return NotFound();
-
             _context.Entry(hospitalization).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();

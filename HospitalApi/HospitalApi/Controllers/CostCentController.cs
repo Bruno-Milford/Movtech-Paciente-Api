@@ -24,6 +24,17 @@ namespace HospitalApi.Controllers
             return Ok(await _context.costCenters.ToArrayAsync());
         }
 
+        [HttpGet]
+        [Route("/costcenter/{codCentroCusto}")]
+        public async Task<ActionResult> GetCostCenterById(int codCentroCusto)
+        {
+            var dbGetById = await _context.costCenters.FindAsync(codCentroCusto);
+
+            if (dbGetById == null) return NotFound();
+
+            return Ok(dbGetById);
+        }
+
         [HttpPost]
         [Route("/costcenter")]
         public async Task<ActionResult> CreateCostCenter(CostCenter costCenter)

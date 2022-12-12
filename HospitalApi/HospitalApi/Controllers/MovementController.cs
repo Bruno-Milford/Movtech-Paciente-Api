@@ -24,6 +24,33 @@ namespace HospitalApi.Controllers
             return Ok(await _context.Movements.ToListAsync());
         }
 
+        [HttpGet]
+        [Route("/movement/{codMovimentacao}")]
+        public async Task<ActionResult> GetMovementById(int codMovimentacao)
+        {
+            var dbGetById = await _context.Movements.FindAsync(codMovimentacao);
+
+            if (dbGetById == null) return NotFound();
+
+            return Ok(dbGetById);
+        }
+
+        /*[HttpGet]
+        [Route("/movement/{codMovimentacao}")]
+        public async Task<ActionResult> GetMovementWithJoin(int codMovimentacao)
+        {
+            var dbGetWithJoin = await _context.Movements.FindAsync(codMovimentacao);
+
+            if (dbGetWithJoin == null)
+            {
+                return NotFound();
+            } 
+            else
+            {
+                var query = (from )
+            }
+        }*/
+
         [HttpPost]
         [Route("/movement")]
         public async Task<ActionResult> CreateMovement(Movement movement)
