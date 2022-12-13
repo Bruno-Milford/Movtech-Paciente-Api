@@ -24,10 +24,10 @@ namespace HospitalApi.Models
         [StringLength(11)]
         public string rgPaciente { get; set; }
 
-        [StringLength(70)]
+        [StringLength(14)]
         public string cns { get; set; }
 
-        [StringLength(14)]
+        [StringLength(70)]
         public string corPaciente { get; set; }
 
         [StringLength(30)]
