@@ -30,26 +30,31 @@ namespace HospitalApi.Controllers
         {
             var dbGetById = await _context.Movements.FindAsync(codMovimentacao);
 
-            if (dbGetById == null) return NotFound();
-
-            return Ok(dbGetById);
-        }
-
-        /*[HttpGet]
-        [Route("/movement/{codMovimentacao}")]
-        public async Task<ActionResult> GetMovementWithJoin(int codMovimentacao)
-        {
-            var dbGetWithJoin = await _context.Movements.FindAsync(codMovimentacao);
-
-            if (dbGetWithJoin == null)
+            if (dbGetById == null)
             {
                 return NotFound();
             } 
             else
             {
-                var query = (from )
+                var query = (from hospitalization in _context.Hospitalizations
+                             join movement in _context.Movements on hospitalization.codInternacao equals movement.codSequencia
+
+                             select new {
+                                      codMovimentacao = movement.codMovimentacao,
+                                      nomePacienteMov = movement.nomePacienteMov,
+                                      codInternacao = hospitalization.codInternacao,
+                                      data = movement.dataMovimentacao,
+                                      motivo = movement.motivo,
+                                      localizacao = movement.localizacao,
+                                      leito = movement.leitoMov,
+                                      centroCusto = movement.centroCustoMov,
+                                      medico = movement.medicoMov,
+                                      crm = movement.crmMov
+                });
             }
-        }*/
+
+            return Ok(dbGetById);
+        }
 
         [HttpPost]
         [Route("/movement")]

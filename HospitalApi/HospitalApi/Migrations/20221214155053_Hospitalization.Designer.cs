@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221207105200_Movement")]
-    partial class Movement
+    [Migration("20221214155053_Hospitalization")]
+    partial class Hospitalization
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,12 +102,6 @@ namespace HospitalApi.Migrations
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
-
-                    b.Property<DateTime>("horaEntradaInternacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("horaSaidaInternacao")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("leito")
                         .IsRequired()
@@ -212,13 +206,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("bairro")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("celular")
                         .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("cep")
                         .IsRequired()
@@ -232,8 +226,8 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("cns")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("contato")
                         .IsRequired()
@@ -242,13 +236,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("corPaciente")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("cpfPaciente")
                         .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<DateTime>("dataNascimento")
                         .HasColumnType("datetime2");
@@ -260,13 +254,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("endereco")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("grauInstrucaoPaciente")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("nacionalidade")
                         .IsRequired()
@@ -280,13 +274,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("nomeMaePaciente")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("nomePaciente")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("observacao")
                         .IsRequired()
@@ -295,8 +289,8 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("profissaoPaciente")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("responsavelPaciente")
                         .IsRequired()
@@ -305,8 +299,8 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("rgPaciente")
                         .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("nvarchar(9)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("sexoPaciente")
                         .IsRequired()
@@ -315,13 +309,13 @@ namespace HospitalApi.Migrations
 
                     b.Property<string>("telefone")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<string>("telefoneContato")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<string>("uf")
                         .IsRequired()

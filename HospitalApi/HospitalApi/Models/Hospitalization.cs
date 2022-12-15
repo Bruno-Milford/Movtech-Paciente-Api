@@ -19,11 +19,7 @@ namespace HospitalApi.Models
 
         public DateTime dataEntradaInternacao { get; set; }
 
-        public DateTime horaEntradaInternacao { get; set; }
-
         public DateTime dataSaidaInternacao { get; set; }
-
-        public DateTime horaSaidaInternacao { get; set; }
 
         [StringLength(15)]
         public string cns { get; set; }

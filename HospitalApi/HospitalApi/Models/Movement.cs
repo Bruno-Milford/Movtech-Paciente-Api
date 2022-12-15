@@ -14,14 +14,10 @@ namespace HospitalApi.Models
         [StringLength(70)]
         public string nomePacienteMov { get; set; }
 
-        public DateTime dataNascimentoMov { get; set; }
-
         [StringLength(70)]
         public string nomeMaePacienteMov { get; set; }
 
         public DateTime dataMovimentacao { get; set; }
-
-        public DateTime horaMovimentacao { get; set; }
 
         [StringLength(70)]
         public string motivo { get; set; }
