@@ -7,15 +7,12 @@ namespace HospitalApi.Models
         [Key]
         public int codMovimentacao { get; set; }
 
-        public int codPacienteMov { get; set; }
+        public int codInternacao { get; set; }
 
         public int codSequencia { get; set; }
 
         [StringLength(70)]
         public string nomePacienteMov { get; set; }
-
-        [StringLength(70)]
-        public string nomeMaePacienteMov { get; set; }
 
         public DateTime dataMovimentacao { get; set; }
 

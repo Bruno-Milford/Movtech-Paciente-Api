@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -12,19 +11,20 @@ namespace HospitalApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "dataNascimentoMov",
+                name: "nomeMaePacienteMov",
                 table: "Movements");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
-                name: "dataNascimentoMov",
+            migrationBuilder.AddColumn<string>(
+                name: "nomeMaePacienteMov",
                 table: "Movements",
-                type: "datetime2",
+                type: "nvarchar(70)",
+                maxLength: 70,
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                defaultValue: "");
         }
     }
 }

@@ -33,24 +33,6 @@ namespace HospitalApi.Controllers
             if (dbGetById == null)
             {
                 return NotFound();
-            } 
-            else
-            {
-                var query = (from hospitalization in _context.Hospitalizations
-                             join movement in _context.Movements on hospitalization.codInternacao equals movement.codSequencia
-
-                             select new {
-                                      codMovimentacao = movement.codMovimentacao,
-                                      nomePacienteMov = movement.nomePacienteMov,
-                                      codInternacao = hospitalization.codInternacao,
-                                      data = movement.dataMovimentacao,
-                                      motivo = movement.motivo,
-                                      localizacao = movement.localizacao,
-                                      leito = movement.leitoMov,
-                                      centroCusto = movement.centroCustoMov,
-                                      medico = movement.medicoMov,
-                                      crm = movement.crmMov
-                });
             }
 
             return Ok(dbGetById);
@@ -73,16 +55,12 @@ namespace HospitalApi.Controllers
         }
 
         [HttpPut]
-        [Route("/movement")]
+        [Route("/movement/{codMovimentacao}")]
         public async Task<ActionResult> UpdateMovement(Movement movement)
         {
-            var dbMovement = await _context.Movements.FindAsync(movement.codMovimentacao);
-
-            if (dbMovement == null) return NotFound();
+            _context.Entry(movement).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
-
-            _context.Entry(movement).State = EntityState.Modified;
 
             return Ok(new
             {

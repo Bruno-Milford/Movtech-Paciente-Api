@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221215133429_Movement")]
+    [Migration("20221216130229_Movement")]
     partial class Movement
     {
         /// <inheritdoc />
@@ -141,7 +141,7 @@ namespace HospitalApi.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("codPacienteMov")
+                    b.Property<int>("codInternacao")
                         .HasColumnType("int");
 
                     b.Property<int>("codSequencia")
@@ -171,11 +171,6 @@ namespace HospitalApi.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("motivo")
-                        .IsRequired()
-                        .HasMaxLength(70)
-                        .HasColumnType("nvarchar(70)");
-
-                    b.Property<string>("nomeMaePacienteMov")
                         .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
